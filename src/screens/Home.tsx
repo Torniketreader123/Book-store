@@ -4,23 +4,27 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Book from '../common/components/organisms/Book';
 import AddButton from '../common/components/organisms/AddButton';
+import AddorEditBooks from './AddorEditBooks';
+import AddOrEditBook from './AddorEditBooks';
 
 const Home = () => {
-  const URL = "https://66276592b625bf088c08330e.mockapi.io/book"
+  const URL = 'https://66276592b625bf088c08330e.mockapi.io/book';
   const getListOfBooks = async () => {
-    const response = await axios.get(
-     URL
-    );
+    const response = await axios.get(URL);
     console.log(response.data);
 
     setData(response.data);
   };
+
+
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     getListOfBooks();
   }, []);
+
+
 
   const onDeleteHandler = async bookId => {
     const response = await axios.delete(
@@ -30,6 +34,7 @@ const Home = () => {
     getListOfBooks();
   };
 
+  const [modalVisible, setModalVisible] = useState(false)
   return (
     <View>
       <FlatList
@@ -48,7 +53,8 @@ const Home = () => {
           />
         )}
       />
-      <AddButton/>
+        <AddButton onAddPres={() => setModalVisible(true)} />
+      <AddOrEditBook visible={modalVisible} onRequestClose={() => setModalVisible(false)}/>
     </View>
   );
 };
