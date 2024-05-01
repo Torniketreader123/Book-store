@@ -15,6 +15,24 @@ const Home = () => {
 
     setData(response.data);
   };
+  const addBook = async () => {
+    try {
+      const newBook = {
+        author: 'robert patinson',
+        nameOfBook: 'jorjia',
+        price:"20",
+        coverURL:"https://edit.org/images/cat/book-covers-big-2019101610.jpg"
+       
+      };
+      const response = await axios.post(URL, newBook);
+      Alert.alert('Book Added');
+      getListOfBooks();
+    } catch (error) {
+      console.error('Error adding book:', error);
+    }
+  };
+
+
 
 
 
@@ -23,7 +41,7 @@ const Home = () => {
   useEffect(() => {
     getListOfBooks();
   }, []);
-
+ 
 
 
   const onDeleteHandler = async bookId => {
@@ -37,6 +55,7 @@ const Home = () => {
   const [modalVisible, setModalVisible] = useState(false)
   return (
     <View>
+    
       <FlatList
         numColumns={2}
         contentContainerStyle={styles.content}
@@ -50,9 +69,11 @@ const Home = () => {
             price={item.price}
             coverURL={item.cover}
             onDeletePress={() => onDeleteHandler(item.id)}
+            addBook={() => addBook(item)}
           />
         )}
       />
+      
         <AddButton onAddPres={() => setModalVisible(true)} />
       <AddOrEditBook visible={modalVisible} onRequestClose={() => setModalVisible(false)}/>
     </View>

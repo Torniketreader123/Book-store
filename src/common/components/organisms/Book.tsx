@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   StyleSheet,
   Text,
@@ -6,13 +7,16 @@ import {
 } from 'react-native';
 import React, {FC} from 'react';
 
+
+
 interface Props {
   author: string;
   nameOfBook: string;
   price: number;
   coverURL: string;
   categoryColor: string;
-  onDeletePress: () => void
+  onDeletePress: () => void;
+  addBook:() => void
 }
 
 const Book: FC<Props> = ({
@@ -21,7 +25,8 @@ const Book: FC<Props> = ({
   price,
   coverURL,
   categoryColor,
-  onDeletePress
+  onDeletePress,
+  addBook
 }) => {
   return (
     <View style={styles.container}>
@@ -30,6 +35,10 @@ const Book: FC<Props> = ({
         <Text style={styles.deleteText} 
         onPress={onDeletePress}
         >Delete</Text>
+        <Text style={styles.addText} 
+        onPress={addBook}>
+          Add
+        </Text>
       </View>
 
       <Text>{author}</Text>
@@ -57,6 +66,15 @@ const styles = StyleSheet.create({
     marginTop: -20,
     borderRadius: 8,
   },deleteText:{
-    color:"red"
+    color:"red",
+    right:20
+  },
+  addText:{
+    color:"red",
+    left:30,
+    bottom:17
   }
+  
+
+  
 });
