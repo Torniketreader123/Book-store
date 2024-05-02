@@ -1,6 +1,6 @@
-import Profile from "../common/components/organisms/Profile"
+import Profile from '../common/components/organisms/Profile';
 
-const ProfilesScreen = () =>{
-    <Profile/>
-}
+const ProfilesScreen = () => {
+  <Profile />;
+};
 export default ProfilesScreen;

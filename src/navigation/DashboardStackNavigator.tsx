@@ -14,7 +14,6 @@ export default function App() {
       <Tab.Screen name="LoginScreen" component={LoginScreen} />
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Profiles" component={ProfilesScreen} />
-      
     </Tab.Navigator>
   );
 }
