@@ -11,8 +11,7 @@ import {
 import React from 'react';
 import MainInput from '../common/components/_atom/MiniInput';
 import MainButton from '../common/components/_atom/MainButton';
-import { Colors } from '../style/color';
-
+import {Colors} from '../style/color';
 
 const AddOrEditBook = ({visible, onRequestClose}) => {
   return (
@@ -22,9 +21,7 @@ const AddOrEditBook = ({visible, onRequestClose}) => {
       animationType="slide">
       <SafeAreaView>
         <Pressable>
-            <Image source={require("../assets/close.jpg")} 
-            style={styles.icon
-            }/>
+          <Image source={require('../assets/close.jpg')} style={styles.icon} />
         </Pressable>
         <View style={{paddingHorizontal: 20}}>
           <MainInput options={{placeholder: 'book name'}} />
@@ -41,16 +38,12 @@ const AddOrEditBook = ({visible, onRequestClose}) => {
 export default AddOrEditBook;
 
 const styles = StyleSheet.create({
-    icon : {
-        height:30,
-        width:30,
-        resizeMode:"stretch",
-        borderRadius:50,
-        color: Colors.white,
-        backgroundColor:Colors.mainColor
-
-        
-        
-
-    }
+  icon: {
+    height: 30,
+    width: 30,
+    resizeMode: 'stretch',
+    borderRadius: 50,
+    color: Colors.white,
+    backgroundColor: Colors.mainColor,
+  },
 });

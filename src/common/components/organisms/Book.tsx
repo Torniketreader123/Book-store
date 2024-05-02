@@ -1,13 +1,5 @@
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Alert, Image, StyleSheet, Text, View} from 'react-native';
 import React, {FC} from 'react';
-
-
 
 interface Props {
   author: string;
@@ -16,7 +8,7 @@ interface Props {
   coverURL: string;
   categoryColor: string;
   onDeletePress: () => void;
-  addBook:() => void
+  addBook: () => void;
 }
 
 const Book: FC<Props> = ({
@@ -26,17 +18,16 @@ const Book: FC<Props> = ({
   coverURL,
   categoryColor,
   onDeletePress,
-  addBook
+  addBook,
 }) => {
   return (
     <View style={styles.container}>
       <View style={[styles.coloredSquare, {backgroundColor: categoryColor}]}>
         <Image source={{uri: coverURL}} style={styles.image} />
-        <Text style={styles.deleteText} 
-        onPress={onDeletePress}
-        >Delete</Text>
-        <Text style={styles.addText} 
-        onPress={addBook}>
+        <Text style={styles.deleteText} onPress={onDeletePress}>
+          Delete
+        </Text>
+        <Text style={styles.addText} onPress={addBook}>
           Add
         </Text>
       </View>
@@ -65,16 +56,14 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
     marginTop: -20,
     borderRadius: 8,
-  },deleteText:{
-    color:"red",
-    right:20
   },
-  addText:{
-    color:"red",
-    left:30,
-    bottom:17
-  }
-  
-
-  
+  deleteText: {
+    color: 'red',
+    right: 20,
+  },
+  addText: {
+    color: 'red',
+    left: 30,
+    bottom: 17,
+  },
 });
